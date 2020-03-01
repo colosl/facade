@@ -1,0 +1,26 @@
+{
+  "name": "facade",
+  "version": "0.0.1",
+  "description": "A CSS library for scaffolding gorgeous UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colosl/facade.git"
+  },
+  "keywords": [
+    "CSS",
+    "UI",
+    "facade",
+    "web",
+    "html"
+  ],
+  "author": "colosl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/colosl/facade/issues"
+  },
+  "homepage": "https://github.com/colosl/facade#readme"
+}

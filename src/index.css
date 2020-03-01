@@ -1,0 +1,90 @@
+:root {
+  --perspective: 1000px;
+  --primary: #333c42;
+  --secondary: #dbe19a;
+  --font-family: "Montserrat", sans-serf;
+  --font-size: 20px;
+}
+
+* {
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+.facade,
+.page,
+.section {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.facade {
+  overflow: hidden;
+  perspective: var(--perspective);
+  position: fixed;
+}
+
+.page {
+  overflow-y: auto;
+  position: absolute;
+}
+
+.section {
+  align-items: center;
+  background: center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.page,
+.menu {
+  transition: transform 200ms;
+}
+
+#menu-open {
+  position: fixed;
+  right: 200%;
+}
+
+.menu-btn {
+  border: 1px solid red;
+  cursor: pointer;
+  display: block;
+  height: 48px;
+  left: 40px;
+  position: fixed;
+  top: 40px;
+  width: 48px;
+  z-index: 10;
+}
+
+.menu {
+  background: black;
+  height: 100%;
+  position: fixed;
+  right: 100%;
+  transition: transform 200ms;
+  width: 400px;
+}
+
+#menu-open:checked ~ .menu {
+  transform: translateX(100%);
+}
+
+#menu-open:checked ~ .menu-btn {
+  border: 1px solid blue;
+}
+
+#menu-open:checked ~ .page {
+  transform: translateX(400px);
+}
