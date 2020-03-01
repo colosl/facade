@@ -21,10 +21,18 @@ body {
 .facade,
 .page,
 .section {
-  height: 100%;
   left: 0;
   top: 0;
   width: 100%;
+}
+
+.facade,
+.page {
+  height: 100%;
+}
+
+.section {
+  min-height: 100%;
 }
 
 .facade {
@@ -39,11 +47,10 @@ body {
 }
 
 .section {
-  align-items: center;
   background: center / cover no-repeat;
-  display: flex;
   justify-content: center;
   position: relative;
+  text-align: center;
 }
 
 .page,
@@ -51,13 +58,7 @@ body {
   transition: transform 200ms;
 }
 
-#menu-open {
-  position: fixed;
-  right: 200%;
-}
-
 .menu-btn {
-  border: 1px solid red;
   cursor: pointer;
   display: block;
   height: 48px;
@@ -66,6 +67,10 @@ body {
   top: 40px;
   width: 48px;
   z-index: 10;
+
+  & > * {
+    top: 50%;
+  }
 }
 
 .menu {
@@ -77,14 +82,60 @@ body {
   width: 400px;
 }
 
-#menu-open:checked ~ .menu {
-  transform: translateX(100%);
+.hamburger {
+  position: relative;
+  height: 2px;
+
+  &,
+  &::after,
+  &::before {
+    background: var(--primary);
+    display: block;
+    transform-origin: 50%;
+    transition: transform 300ms ease-in-out;
+    transition-property: opacity, transform;
+    width: 100%;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    height: 100%;
+    position: absolute;
+  }
+
+  &::after {
+    transform: translateY(-8px);
+  }
+  &::before {
+    transform: translateY(8px);
+  }
 }
 
-#menu-open:checked ~ .menu-btn {
-  border: 1px solid blue;
-}
+#menu-open {
+  position: fixed;
+  right: 200%;
 
-#menu-open:checked ~ .page {
-  transform: translateX(400px);
+  &:checked {
+    & ~ .menu {
+      transform: translateX(100%);
+    }
+
+    & ~ .menu-btn .hamburger {
+      transform: rotate(45deg);
+
+      &::after {
+        opacity: 0;
+        transform: translateY(0px);
+      }
+
+      &::before {
+        transform: rotate(-90deg) translateY(0px);
+      }
+    }
+
+    & ~ .page {
+      transform: translateX(400px);
+    }
+  }
 }
