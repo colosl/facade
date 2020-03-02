@@ -1,6 +1,12 @@
 :root {
+  --c: 12;
+  --d: block;
+  --g: 0;
+
+  --content-width: 1280px;
   --perspective: 1000px;
   --primary: #333c42;
+  --menu-width: 100%;
   --secondary: #dbe19a;
   --font-family: "Montserrat", sans-serf;
   --font-size: 20px;
@@ -8,7 +14,6 @@
 
 * {
   border: none;
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -32,7 +37,8 @@ body {
 }
 
 .section {
-  min-height: 100%;
+  --h: 100%;
+  min-height: var(--h);
 }
 
 .facade {
@@ -47,10 +53,51 @@ body {
 }
 
 .section {
+  align-items: center;
+  display: var(--d);
   background: center / cover no-repeat;
   justify-content: center;
   position: relative;
   text-align: center;
+
+  &.skew {
+    margin: 3% 0;
+    padding: 3% 0;
+
+    &::before {
+      content: "";
+      display: block;
+      left: 0;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transform: skewY(3deg);
+      width: 100%;
+      z-index: -1;
+    }
+  }
+
+  &.dark {
+    color: white;
+    &::before {
+      background: black;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: var(--content-width);
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-gap: var(--g);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc((var(--content-width) / var(--c) - var(--g))), 1fr)
+  );
 }
 
 .page,
@@ -64,6 +111,7 @@ body {
   height: 48px;
   left: 40px;
   position: fixed;
+  mix-blend-mode: difference;
   top: 40px;
   width: 48px;
   z-index: 10;
@@ -74,12 +122,29 @@ body {
 }
 
 .menu {
-  background: black;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: center;
   position: fixed;
   right: 100%;
-  transition: transform 200ms;
-  width: 400px;
+  transition: transform 400ms;
+  width: var(--menu-width);
+
+  ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+    display: block;
+    padding: 2rem;
+    text-decoration: none;
+  }
 }
 
 .hamburger {
@@ -135,7 +200,8 @@ body {
     }
 
     & ~ .page {
-      transform: translateX(400px);
+      overflow: hidden;
+      transform: translateX(var(--menu-width));
     }
   }
 }

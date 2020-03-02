@@ -11,33 +11,40 @@
     <div class="facade">
       <input id="menu-open" type="checkbox" />
       <label class="menu-btn" for="menu-open">
-        <i class="icon hamburger"></i>
+        <i class="hamburger"></i>
       </label>
-      <nav class="menu"></nav>
+      <nav class="menu">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#scaffolding">Scaffolding</a></li>
+          <li><a href="#grid-system">Grid System</a></li>
+        </ul>
+      </nav>
       <main class="page">
-        <section class="section">
-          <h1>Heading 001</h1>
-          <h2>Heading 002</h2>
-          <h3>Heading 003</h3>
-          <h4>Heading 004</h4>
-          <h5>Heading 005</h5>
-          <h6>Heading 006</h6>
-          <p>This is a para</p>
-          <ul>
-            <li>thisdasd</li>
-            <li>thisdasd</li>
-            <li>thisdasd</li>
-            <li>thisdasd</li>
-          </ul>
+        <section id="home" class="section" style="--d:flex">
+          <div class="container">
+            <h1>Facade</h1>
+            <p>A CSS library for scaffolding gorgeous UI.</p>
+          </div>
         </section>
-        <section class="section">
-          <h2>Heading</h2>
+        <section id="introduction" class="section dark skew" style="--d:flex">
+          <div class="container">
+            <h2>Introduction</h2>
+          </div>
         </section>
-        <section class="section">
-          <h2>Heading</h2>
+        <section id="scaffolding" class="section" style="--d:flex">
+          <div class="container">
+            <h2>Scaffolding</h2>
+          </div>
         </section>
-        <section class="section">
-          <h2>Heading</h2>
+        <section id="grid" class="section dark skew" style="--d:flex">
+          <div class="container">
+            <h2>Grid System</h2>
+            <div class="grid">
+              <h3>Welcome to our grid system</h3>
+            </div>
+          </div>
         </section>
       </main>
     </div>
