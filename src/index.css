@@ -1,9 +1,9 @@
 :root {
   --c: 12;
   --d: block;
-  --g: 0;
+  --g: 0rem;
 
-  --content-width: 1280px;
+  --content-width: 1344px;
   --perspective: 1000px;
   --primary: #333c42;
   --menu-width: 100%;

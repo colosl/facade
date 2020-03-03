@@ -20,7 +20,7 @@ module.exports = {
       }
     ]),
     new HtmlWebpackPlugin({
-      title: "Webpack Boilerplate",
+      title: "Facade",
       favicon: paths.src + "/images/favicon.png",
       template: paths.src + "/index.html",
       filename: "index.html"
